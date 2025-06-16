@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap");
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -34,20 +36,21 @@
 
     --radius: 0.5rem;
 
+    /* Medical Theme Colors */
+    --medical-blue: #1e40af;
+    --medical-blue-light: #3b82f6;
+    --medical-red: #dc2626;
+    --medical-red-light: #ef4444;
+    --medical-green: #059669;
+    --medical-gray: #6b7280;
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,5 +100,48 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .font-montserrat {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .font-open-sans {
+    font-family: "Open Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-medical-blue {
+    color: var(--medical-blue);
+  }
+
+  .text-medical-red {
+    color: var(--medical-red);
+  }
+
+  .text-medical-green {
+    color: var(--medical-green);
+  }
+
+  .bg-medical-blue {
+    background-color: var(--medical-blue);
+  }
+
+  .bg-medical-red {
+    background-color: var(--medical-red);
+  }
+
+  .bg-medical-green {
+    background-color: var(--medical-green);
+  }
+
+  .border-medical-blue {
+    border-color: var(--medical-blue);
+  }
+
+  .border-medical-red {
+    border-color: var(--medical-red);
   }
 }
