@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface Language {
-  code: "ru" | "en";
+  code: "ru" | "en" | "it" | "es";
   name: string;
   flag: string;
 }
@@ -64,6 +64,8 @@ interface Translations {
 const languages: Language[] = [
   { code: "ru", name: "Русский", flag: "🇷🇺" },
   { code: "en", name: "English", flag: "🇺🇸" },
+  { code: "it", name: "Italiano", flag: "🇮🇹" },
+  { code: "es", name: "Español", flag: "🇪🇸" },
 ];
 
 const translations: Record<string, Translations> = {
@@ -179,12 +181,124 @@ const translations: Record<string, Translations> = {
       address: "Address",
     },
   },
+  it: {
+    nav: {
+      services: "Servizi",
+      about: "Chi siamo",
+      contact: "Contatti",
+    },
+    hero: {
+      title: "Assistenza Medica per Stranieri in Russia",
+      subtitle: "Supporto medico professionale nella tua lingua",
+      cta: "Ottieni Consulenza",
+      emergency: "Aiuto di Emergenza 24/7",
+    },
+    services: {
+      title: "I Nostri Servizi",
+      diagnosis: {
+        title: "Diagnosi",
+        description: "Esame completo utilizzando attrezzature moderne",
+      },
+      treatment: {
+        title: "Trattamento",
+        description: "Trattamento qualificato secondo standard internazionali",
+      },
+      support: {
+        title: "Supporto",
+        description:
+          "Assistenza con documenti e traduzione terminologia medica",
+      },
+    },
+    features: {
+      title: "Perché Scegliere Noi",
+      multilingual: {
+        title: "Multilingue",
+        description: "Comunicazione in russo e inglese",
+      },
+      available: {
+        title: "Disponibilità 24/7",
+        description: "Supporto continuo in casi di emergenza",
+      },
+      professional: {
+        title: "Professionalità",
+        description: "Medici esperti con pratica internazionale",
+      },
+    },
+    about: {
+      title: "Il Nostro Centro",
+      description:
+        "Ci specializziamo nel fornire assistenza medica ai cittadini stranieri in Russia. Il nostro team garantisce cure mediche di qualità tenendo conto delle caratteristiche culturali e delle esigenze linguistiche dei pazienti.",
+    },
+    contact: {
+      title: "Informazioni di Contatto",
+      emergency: "Linea di Emergenza",
+      phone: "Telefono",
+      email: "Email",
+      address: "Indirizzo",
+    },
+  },
+  es: {
+    nav: {
+      services: "Servicios",
+      about: "Nosotros",
+      contact: "Contacto",
+    },
+    hero: {
+      title: "Asistencia Médica para Extranjeros en Rusia",
+      subtitle: "Apoyo médico profesional en tu idioma",
+      cta: "Obtener Consulta",
+      emergency: "Ayuda de Emergencia 24/7",
+    },
+    services: {
+      title: "Nuestros Servicios",
+      diagnosis: {
+        title: "Diagnóstico",
+        description: "Examen integral utilizando equipos modernos",
+      },
+      treatment: {
+        title: "Tratamiento",
+        description: "Tratamiento calificado según estándares internacionales",
+      },
+      support: {
+        title: "Apoyo",
+        description:
+          "Asistencia con documentos y traducción de terminología médica",
+      },
+    },
+    features: {
+      title: "Por Qué Elegirnos",
+      multilingual: {
+        title: "Multilingüe",
+        description: "Comunicación en ruso e inglés",
+      },
+      available: {
+        title: "Disponibilidad 24/7",
+        description: "Soporte continuo en casos de emergencia",
+      },
+      professional: {
+        title: "Profesionalismo",
+        description: "Médicos experimentados con práctica internacional",
+      },
+    },
+    about: {
+      title: "Nuestro Centro",
+      description:
+        "Nos especializamos en brindar asistencia médica a ciudadanos extranjeros en Rusia. Nuestro equipo garantiza atención médica de calidad teniendo en cuenta las características culturales y las necesidades lingüísticas de los pacientes.",
+    },
+    contact: {
+      title: "Información de Contacto",
+      emergency: "Línea de Emergencia",
+      phone: "Teléfono",
+      email: "Correo Electrónico",
+      address: "Dirección",
+    },
+  },
 };
 
 interface LanguageContextType {
   currentLanguage: Language;
   translations: Translations;
-  changeLanguage: (code: "ru" | "en") => void;
+  changeLanguage: (code: "ru" | "en" | "it" | "es") => void;
   languages: Language[];
 }
 
@@ -199,7 +313,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
     languages[0],
   );
 
-  const changeLanguage = (code: "ru" | "en") => {
+  const changeLanguage = (code: "ru" | "en" | "it" | "es") => {
     const language = languages.find((lang) => lang.code === code);
     if (language) {
       setCurrentLanguage(language);
