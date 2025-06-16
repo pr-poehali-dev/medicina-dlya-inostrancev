@@ -1,0 +1,3 @@
+# medicina-dlya-inostrancev
+
+Initial repository setup for pr-poehali-dev/medicina-dlya-inostrancev
